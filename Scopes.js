@@ -277,3 +277,4 @@ console.log(content); //it must be used after the initialization of the variable
 function fun(){
   content = "JS"; 
 }
+// we must call the function after the initialization of the variable. 
