@@ -174,7 +174,7 @@ function fun(fn){
 
 fun(function askingAboutYou(){
   console.log("I am fine and you?");
-  console.trace();
+  console.trace(); // it will give the stack trace of the code. and show the name of the function.if there is no name of the function then it will show anonymous , then it will be hard to debug the code.
 });
 
 // Usecase of iife
@@ -198,4 +198,12 @@ function x (){
 x();
 // But it is not a good practice to use IIFE in the code. It is always good to use the named function expression.
 // use only for small code snippet.
+
+// Use case of arrow function expression
+// Arrow function expression is used to write the function in a short form.
+// It is used to avoid the function keyword.
+// It is used to avoid the return keyword.
+// It is used to avoid the curly braces.
+// It is used to avoid the function name.
+
 
