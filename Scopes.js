@@ -273,8 +273,77 @@ fun(); */
 
 // So the conclusion is , all the non-formal declarations must be initialized such that it will come in the execution and try to find the scope of the variable and it will start and go out of the scopes unitl it finds the scope of the varibale and if it didn't find the scope then it will consider it as a global variable and hoisted to the top of the code.
 
-console.log(content); //it must be used after the initialization of the variable.
+/* console.log(content); //it must be used after the initialization of the variable.
 function fun(){
   content = "JS"; 
-}
+} */
+
 // we must call the function after the initialization of the variable. 
+
+
+console.log("first is : " + a());
+
+var a = function(){
+  console.log("Hello");
+}
+
+function a(){
+  console.log("Hi");
+}
+
+console.log("second is : " + a());
+
+
+
+/* 
+
+Let's break down the JavaScript code step by step to understand its working:
+
+javascript
+
+console.log("first is : " + a());
+
+var a = function(){
+  console.log("Hello");
+}
+
+function a(){
+  console.log("Hi");
+}
+
+console.log("second is : " + a());
+
+Step-by-Step Execution
+
+    Function Declarations and Hoisting:
+        Function declarations in JavaScript are hoisted to the top of their scope. This means that the function a() declared with function a() { ... } is known to the entire script from the start.
+        Variable declarations (var a) are also hoisted, but their assignments are not. This means that the variable a is known from the start, but it is undefined until it is assigned.
+
+    Function Declarations First:
+        The function declaration function a() { console.log("Hi"); } is hoisted and takes precedence over the variable declaration var a. Initially, a is a function that logs "Hi".
+
+    First console.log:
+        At this point, a is still the function that logs "Hi" because the var a = function() { console.log("Hello"); } assignment hasn't been executed yet.
+        So, a() is called, logging "Hi".
+        The string concatenation is done, resulting in console.log("first is : " + a());, which logs Hi and then first is : undefined. This happens because a() returns undefined, so the concatenation with "first is : " results in undefined.
+
+    Variable Assignment:
+        After the first console.log, the line var a = function() { console.log("Hello"); } is executed. Now, a is reassigned to the new function that logs "Hello".
+
+    Second console.log:
+        Now a refers to the function that logs "Hello".
+        a() is called, logging "Hello".
+        The string concatenation is done, resulting in console.log("second is : " + a());, which logs Hello and then second is : undefined. This happens because a() returns undefined, so the concatenation with "second is : " results in undefined.
+
+Output
+
+Based on the above explanation, the output will be:
+
+csharp
+
+Hi
+first is : undefined
+Hello
+second is : undefined
+
+*/
