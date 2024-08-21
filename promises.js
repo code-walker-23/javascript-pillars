@@ -15,14 +15,14 @@ Promises significance:
 
 
 Problems solved by promises:
-1. Callback hell
+1. Callback hell =->importance of promises.
 2. Readability
 3. Maintainability
 4. Error handling
 5. Multiple asynchronous operations
 6. Better control flow
 7. Better handling of asynchronous operations
-8. Inversion of control : Promises invert the inversion of control introduced by callbacks.(Inversion of control is a design principle in which the control of objects or portions of a program is transferred to a container or framework.)
+8. Inversion of control : Promises invert the inversion of control introduced by callbacks.(Inversion of control is a design principle in which the control of objects or portions of a program is transferred to a container or framework.) => imp
 
 
 
