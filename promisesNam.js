@@ -42,6 +42,7 @@ promise.then(function exec(promiseResult) {
 // promise object is a native piece of code in javascript.
 
 // Promise Chaining:
+// consuming the promise object.
 
 createOrder(cart)
   .then(function exec(orderId) {

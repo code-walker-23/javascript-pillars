@@ -78,7 +78,7 @@ let promise = new Promise(function(resolve,reject){
 // if we dont call resolve or reject then the promise will be in pending state.
 along with the state there is value associated with the promise object.
 value is undefined if the promise is in pending state.
-with whateever value we call resolve or reject that value will be associated with the promise object.
+with whatever value we call resolve or reject that value will be associated with the promise object.
 }}
 
 irony is : to create a promise we need to create a callback function and that callback function will have two arguments resolve and reject.
@@ -117,6 +117,11 @@ function createPromiseWithLoop(){
 }
 let x = createPromiseWithLoop();
 console.log(x);
+
+
+
+
+// In this piece of code we are creating a promise object and returning it immediately when the executor function is executed because there is no asynchronous code present in the executor function.
 
 // In this piece of code we are creating a promise object and returning it immediately when the executor function is executed because there is asynchronous code present in the executor function.
 
