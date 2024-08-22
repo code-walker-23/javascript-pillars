@@ -1,4 +1,6 @@
-/* const cart = ["pant", "shirt", "shoes"];
+/* 
+
+const cart = ["pant", "shirt", "shoes"];
 // there is a dependency between the functions to achieve the desired result
 // there are two things one is sending the callback function and second is attaching the callback function.
 
@@ -32,7 +34,10 @@ console.log(promise); // this promise is immutable in nature.
 
 promise.then(function exec(promiseResult) {
   console.log(promiseResult);
-  console.log(promiseResult.json());
+  promiseResult.json().then((res) => {
+    console.log("actual :", res);
+  });
+  console.log("hello");
 });
 
 // promise : placeholder for the value that will be available in the future.
@@ -44,7 +49,7 @@ promise.then(function exec(promiseResult) {
 // Promise Chaining:
 // consuming the promise object.
 
-createOrder(cart)
+/* createOrder(cart)
   .then(function exec(orderId) {
     return proceedToPayment(orderId); // we always return the promise object from the then function.
   })
@@ -63,4 +68,4 @@ createOrder(cart)
   .then((paymentInfo) => showOrderSummary(paymentInfo))
   .then(() => updateWallet());
 
-  // now the code is increasing vertically not horizontally.
+  // now the code is increasing vertically not horizontally. */

@@ -20,7 +20,7 @@ console.log(teacher); // Vinay
 
 // Temporal Dead Zone : The Temporal Dead Zone (TDZ) is the time between the creation of a variable's binding and its initialization where the variable is in an uninitialized state and accessing it results in a ReferenceError.
 
-// The varibale ehich is having let keyword is not accessible before initialization. It will give error. But if we use var keyword then it will give undefined.
+// The varibale which is having let keyword is not accessible before initialization. It will give error. But if we use var keyword then it will give undefined.
 
 // The variable which is having var keyword is accessible before initialization. It will give undefined. But if we use let keyword then it will give error.
 

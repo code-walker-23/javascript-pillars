@@ -64,8 +64,8 @@ console.log(res);
 
 Promise.all([p1, p2, p3]).then(function (values) {
   console.log(values);
-});
- */
+}); */
+
 
 // case of rejection
 
@@ -97,8 +97,8 @@ Promise.all([p1, p2, p3])
   })
   .catch(function (error) {
     console.log(error);
-  });
- */
+  }); */
+
 // always catch your error not show the uncaught error in browser
 
 // allSettled -> success
@@ -129,7 +129,7 @@ Promise.allSettled([p1, p2, p3]).then(function (values) {
 }); */
 
 // allSettled -> failure
-// if all the promises are rejected then also it will return the result of all promises and the status of single returned promise will be rejected
+// if all the promises are rejected then also it will return the result of all promises and the status of single returned promise will be fulfilled
 
 /* const p1 = new Promise(function exec(resolve, reject) {
   setTimeout(() => {
@@ -145,7 +145,7 @@ const p2 = new Promise(function exec(resolve, reject) {
 
 const p3 = new Promise(function exec(resolve, reject) {
   setTimeout(() => {
-    resolve("p3 is successful");
+    reject("p3 is successful");
   }, 3000);
 });
 
@@ -226,7 +226,7 @@ Promise.any([p1, p2, p3])
 
 // promise.any -> all promises are rejected
 
-const p1 = new Promise(function exec(resolve, reject) {
+/* const p1 = new Promise(function exec(resolve, reject) {
   setTimeout(() => {
     reject("p1 is successful");
   }, 3000);
@@ -254,4 +254,4 @@ Promise.any([p1, p2, p3])
   .catch(function (error) {
     console.log(error,"error");
     console.log(error.errors,"errors");
-  });
+  }); */

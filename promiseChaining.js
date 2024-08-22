@@ -28,13 +28,15 @@ function createOrder(cart) {
 }
 
 function validateCart() {
-  return false; // false
+  return true; // false
 }
 const promise = createOrder(cart);
 console.log(promise);
 
+// it is just guranted that when promise is resolved then it will execute the then ans catch statement 
 promise
   .then(function (orderId) {
+    console.log("hello")
     console.log(orderId);
   })
   .catch(function (err) {

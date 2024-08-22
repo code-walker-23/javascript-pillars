@@ -12,7 +12,22 @@ console.log("Hi we are ending here"); */
 
 // There is a mechanism that is responsible to handle the asynchronous nature of JavaScript. This mechanism is known as the Event Loop. The Event Loop: It is a mechanism that makes sure that the code runs in a non-blocking way. It is responsible for executing the code, collecting and processing events, and executing queued sub-tasks.
 
+
 // Callbacks: Callbacks are the functions that are passed as arguments to another function. Callbacks are used to handle the asynchronous nature of JavaScript. Callbacks are used to make sure that a function is not executed before the completion of another function. Callbacks are used to make sure that a function is executed only after the completion of another function.
+
+/* function fetchData(callback) {
+  setTimeout(() => {
+    console.log("Data fetched");
+    callback();
+  }, 2000); // Simulates a network request delay of 2 seconds
+}
+
+function processData() {
+  console.log("Processing data...");
+}
+
+fetchData(processData); // fetchData will execute first, then processData will run as a callback.
+ */
 
 // Callback Hell: Callback Hell is a situation where multiple callbacks are nested inside each other. It makes the code difficult to read and maintain. It is also known as Pyramid of Doom. Callback Hell is a situation where multiple callbacks are nested inside each other. It makes the code difficult to read and maintain. It is also known as Pyramid of Doom.
 
@@ -31,7 +46,7 @@ function timeConsumingByLoop(){
   console.log("loop ends")
 }
 
-function timeConsumingByRuntimeFeature(){``
+function timeConsumingByRuntimeFeature(){
   console.log("starting timer!");
   setTimeout(function(){
     console.log("completed the timer!");
@@ -61,7 +76,7 @@ console.log("bye");
 
 //But the javascript says to runtime hey there is a timer set for 0 milliseconds so please execute it after the current execution of the code.when timer completes ,runtime says to the javascript that my timer is complete and execute my callback function then Javascript says i am execuitng my native piece of code and after that i will execute your callback function.Until then push this into the event queue or callback queue
 
-// There is a conecept event loop that constantly checks the call stack and the callback queue. If the call stack is empty then it will check the callback queue and if there is any callback function in the callback queue then it will push that callback function into the call stack and execute it.
+// There is a concept event loop that constantly checks the call stack and the callback queue. If the call stack is empty then it will check the callback queue and if there is any callback function in the callback queue then it will push that callback function into the call stack and execute it.
 
 
 // But remember before pushing the callback function into the callback queue there is no global piece of code left to execute. If there is any global piece of code left to execute then the callback function will not be pushed into the callback queue. It will be pushed into the callback queue only when there is no global piece of code left to execute.

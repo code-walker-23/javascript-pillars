@@ -9,9 +9,9 @@
   setTimeout(() => {
     resolve("hello world");
   }, 2000);
-  setTimeout(() => {
-    reject("rejected"); // it will execute first
-  }, 1000);
+  // setTimeout(() => {
+  //   reject("rejected"); // it will execute first
+  // }, 1000);
 });
 
 async function asyncFunction() {
@@ -27,7 +27,8 @@ asyncFunction()
   .catch((err) => {
     console.log(err);
   });
- */
+  console.log("VINAY")// IT WILL EXECUTE */
+
 // if we return a promise from the async function then it will return the promise
 
 // aysnc await is the syntactic sugar over the promises
@@ -36,11 +37,11 @@ asyncFunction()
 // they both are used to handle the promises
 
 // async await is used to handle the promises in a more synchronous way
-const p = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("Promise resolved"); // if we use reject then it will go to the catch block
-  }, 3000);
-});
+// const p = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     reject("Promise resolved"); // if we use reject then it will go to the catch block
+//   }, 3000);
+// });
 
 // function getData() {
 //   p.then((res) => console.log(res)).catch((err) => console.log(err));
@@ -97,7 +98,7 @@ getData();
 // async_await.js:87 hello world
 // async_await.js:88 Promise resolved */
 
-const p1 = new Promise((resolve, reject) => {
+/* const p1 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve("Promise resolved"); // if we use reject then it will go to the catch block
   }, 5000);
@@ -115,4 +116,4 @@ async function getData() {
     console.log(error);
   }
 }
-getData();
+getData(); */

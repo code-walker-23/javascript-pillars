@@ -4,7 +4,7 @@
 console.log(this); // window object
 
 /* 
-  In the global space, this refers to the global object, which is window in the browser and global in Node.js.
+  In the global space, this refers to the global object, which is window in the browser.
 
   In the browser, this refers to the window object, which is the global object in client-side JavaScript.
 
@@ -19,11 +19,11 @@ console.log(this); // window object
 
 // this keyword in function
 
-function printThis() {
-  console.log(this);
-}
+// function printThis() {
+//   console.log(this);
+// }
 
-printThis(); // window object
+// printThis(); // window object
 
 /* 
 The differnce between this in global space and this in function is that in global space this refers to the global object, but in function this refers to the object that called the function.
@@ -32,8 +32,8 @@ But if we use strict mode, this in function will be undefined.
 
 why this is undefined in strict mode?
 
-Because in non-strict-mode , if the value of this keyword is undefine or null and this keyword replaced with global object, but in strict mode this keyword will not be replaced with global object. 
-Inside the function, value is depnend on strict mode, if strict mode is enabled, this will be undefined, otherwise it will be global object.
+Because in non-strict-mode , if the value of this keyword is undefined or null and this keyword replaced with global object, but in strict mode this keyword will not be replaced with global object. 
+Inside the function, value is depend on strict mode, if strict mode is enabled, this will be undefined, otherwise it will be global object.
 
 This is possible because of this substitution rule in non-strict mode.
 
@@ -48,7 +48,7 @@ pribntThis(); // undefined
 window.printThis(); // window object
 
 */
-window.printThis(); // window object
+// window.printThis(); // window object
 
 // this keyword in object
 

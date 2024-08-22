@@ -10,15 +10,14 @@ let f = function gun(){
 
 } */
 
-(function x(t){
-  console.log("Hi",t); // eefi -> immediately invoked function expression
-}) ("Vinay");
+(function x(t) {
+  console.log("Hi", t); // eefi -> immediately invoked function expression
+})("Vinay");
 
 /* let y = () => {
 
 }
  */
-
 
 /* 
 
@@ -164,15 +163,15 @@ However, the design of arguments.callee has multiple issues. The first problem i
 
 // In case of production levelcode, we should always use named function expression. It will help in debugging and understanding the code.
 
-// console.trace will give the stack trace of the code. and tehre is log of all the functions which are called. and enginner can easily debug the code.
+// console.trace will give the stack trace of the code. and there is log of all the functions which are called. and enginner can easily debug the code.
 // But if the function is anonymous then it will not give the name of the function. So, it is always good to use named function expression.
 
-function fun(fn){
+function fun(fn) {
   console.log("Hi How are you");
   fn();
 }
 
-fun(function askingAboutYou(){
+fun(function askingAboutYou() {
   console.log("I am fine and you?");
   console.trace(); // it will give the stack trace of the code. and show the name of the function.if there is no name of the function then it will show anonymous , then it will be hard to debug the code.
 });
@@ -188,13 +187,13 @@ fun(function askingAboutYou(){
 
 // if someone new come in the project then he will not be able to understand the code. So, it is always good to use the IIFE.
 
-function x (){
+function x() {
   console.log("Hi");
 }
 
-(function x(t){
-  console.log("Hi",t); // eefi -> immediately invoked function expression
-}) ("Vinay");
+(function x(t) {
+  console.log("Hi", t); // eefi -> immediately invoked function expression
+})("Vinay");
 x();
 // But it is not a good practice to use IIFE in the code. It is always good to use the named function expression.
 // use only for small code snippet.
@@ -205,5 +204,3 @@ x();
 // It is used to avoid the return keyword.
 // It is used to avoid the curly braces.
 // It is used to avoid the function name.
-
-
