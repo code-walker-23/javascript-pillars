@@ -108,4 +108,98 @@ console.log("new object : ", newObject);
 // merge
 
 const newObject1 = { ...newObject, ...restaurant };
-console.log("new : ",newObject1);
+console.log("new : ", newObject1);
+
+function testCase({ v, c }) {
+  console.log(v, c);
+}
+const o = { v: 23, c: 25 };
+// console.log(...o); -> error -> always wrapped in {}
+console.log({ ...o });
+testCase({ ...o });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* The spread operator (`...`) in JavaScript is quite versatile when it comes to working with objects. Here are some common scenarios where you can use it:
+
+1. **Merging Objects:**
+   You can use the spread operator to combine properties from multiple objects into a single object.
+
+   ```javascript
+   const obj1 = { a: 1, b: 2 };
+   const obj2 = { b: 3, c: 4 };
+   const merged = { ...obj1, ...obj2 };
+   console.log(merged); // { a: 1, b: 3, c: 4 }
+   ```
+
+   In this example, if there are properties with the same name, the value from the last object (`obj2`) will overwrite the previous one.
+
+2. **Copying Objects:**
+   You can create a shallow copy of an object. This is useful for avoiding mutations to the original object when you want to make modifications.
+
+   ```javascript
+   const original = { x: 1, y: 2 };
+   const copy = { ...original };
+   console.log(copy); // { x: 1, y: 2 }
+   ```
+
+3. **Updating Object Properties:**
+   You can use the spread operator to create a new object with some properties updated while keeping the rest unchanged.
+
+   ```javascript
+   const user = { name: 'Alice', age: 25 };
+   const updatedUser = { ...user, age: 26 };
+   console.log(updatedUser); // { name: 'Alice', age: 26 }
+   ```
+
+4. **Destructuring with Rest Properties:**
+   You can use the spread operator to capture the remaining properties of an object after destructuring.
+
+   ```javascript
+   const person = { name: 'Bob', age: 30, city: 'New York' };
+   const { name, ...rest } = person;
+   console.log(name); // 'Bob'
+   console.log(rest); // { age: 30, city: 'New York' }
+   ```
+
+5. **Function Arguments:**
+   When dealing with functions that take an object as an argument, you can use the spread operator to pass individual properties of the object as separate arguments.
+
+   ```javascript
+   function greet({ name, age }) {
+     console.log(`Hello ${name}, you are ${age} years old.`);
+   }
+   
+   const person = { name: 'Eve', age: 28 };
+   greet({ ...person }); // 'Hello Eve, you are 28 years old.'
+   ```
+
+These uses of the spread operator can help make your code cleaner and more concise by reducing the need for more verbose methods of object manipulation. */
