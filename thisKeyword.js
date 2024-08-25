@@ -44,7 +44,7 @@ This is possible because of this substitution rule in non-strict mode.
 /* 
 Even in the strict mode if the function is called as a method of an object, this will refer to the object that called the function.
 
-pribntThis(); // undefined
+printThis(); // undefined
 window.printThis(); // window object
 
 */
