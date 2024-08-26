@@ -113,7 +113,7 @@ console.log(taku instanceof Person);
 Person.prototype.calcAge = function () {
   console.log(2024 - this.birthYear);
 };
-vinay.calcAge();
+vinay.calcAge(); // Prototypal Inheritance -> inherits the calcAge method from the prototype object
 kaku.calcAge();
 
 // you can add methods to prototype after the instance creation but always remember to call that function after adding to the prototype only.
@@ -189,7 +189,7 @@ Object
 // we can ad properties to prototype
 
 Person.prototype.species = "Human";
-console.log(vinay.species);
+console.log(vinay.species); // initially what happend js search for this property inside vinay object and if it not found in the object ot goes for __proto__
 
 // Both will be the same thing
 console.log(vinay.__proto__);
@@ -200,4 +200,17 @@ console.log(vinay.hasOwnProperty("species")); // this is not in constructor func
 
 // Prototypal Inheritance and Prototype Chain
 
+// Both are same
+console.log(Person); // [Function: Person]
+console.log(Person.prototype.constructor); //[Function: Person]
 
+//  Prototype chain
+
+console.log(vinay.__proto__); // Person.prototype
+console.log(vinay.__proto__.__proto__); // Object.prototype
+console.log(vinay.__proto__.__proto__.__proto__); // null
+
+// it is simialar like scope chain if don't find the property inside the object then it goes for the Person.prototype which is again an object and it is linked to Object.prototype which is again an object and like to the null prototype
+
+// example of hasOwnProperty when we write like vinay.hasOwnPropert() this method is not inside the object vinay and it goes for Person.prototype and in the Person.prototype there is no property names as hasOwnPropert() so again it will go the linked prototype of Person.prototype which Object.prototype and it has property named as hasOwnPropert().
+// It is like a chain 
