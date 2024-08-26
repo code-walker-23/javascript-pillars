@@ -1,3 +1,4 @@
+"use strict";
 /* 
 1. Object-oriented programming (oops) is a programming paradigm(style of code,"how" we write and organize the code) based on the concept of objects.
 2. We use objects to model(describe) real-world or abstract features
@@ -67,15 +68,136 @@ How we can create the new objects , without having the classes?
 But the 4 pillar of OOPs is still valid in prototypes oops in js
 
 */
+// arrow function does not work as contructor function because it doest have it's own this keyword
+// constructor function(function dec or expression) is always follow a naming convention of pascal casing
+// the only difference between constructor function and normal function is that we call constructor function with new keyword
 
+// constructor is not feature of javascript it's like way creating an object that many developer chooses
 
+const Person = function (firstName, birthYear) {
+  console.log(this);
+  // Instance properties
+  this.firstName = firstName;
+  this.birthYear = birthYear;
 
+  // Never do this -> Because if we are creating thousands of objects then creating a lot of copies of this function might affect the performance of the code.
+  // Use protoype
+  /*  this.calcAge = function () {
+    console.log(2024 - this.birthYear); // works fine without this keyword also
+  }; */
+};
 
+const vinay = new Person("Vinay", 2002);
+console.log(vinay);
+// vinay.calcAge();
+// 1. New {} is created
+// 2. function is called , this = {}
+// 3. {} linked to prototype.
+// 4. function automatically returns {} object that we are creating
 
+const kaku = new Person("kaku", 2003);
+console.log(kaku);
+// kaku.calcAge();
 
+// Js does not have classes in consideration classical oops so what we are actually doing here we are creating the objects from the constructor function
+const taku = 0;
+console.log(vinay instanceof Person);
+console.log(kaku instanceof Person);
+console.log(taku instanceof Person);
 
+// Prototypes
 
+// Prototype property of constructor function -> it we set some set of methods to the prototype property of constructor function then all the instaces that we create using that constructor function can access all methods that is defined in prototype property of constructor function because during object creation it gets linked to that protyotpe
 
+// here it will create only one copy of the calcAge fun and every object uses that
+Person.prototype.calcAge = function () {
+  console.log(2024 - this.birthYear);
+};
+vinay.calcAge();
+kaku.calcAge();
 
+// you can add methods to prototype after the instance creation but always remember to call that function after adding to the prototype only.
+// otherwise it will thrwo an error
+
+// every object has property of ___proto__
+
+console.log(vinay.__proto__); // this proto properties comes from third step of creating an object
+console.log(kaku.__proto__);
+console.log(vinay.__proto__ == Person.prototype); // it says that prototype property of vinay is equals to prototype property of Person constructor function
+console.log(kaku.__proto__ == Person.prototype);
+console.log(Person.prototype.isPrototypeOf(kaku)); // prototype of constructor function is prototype of object kaku and vinay
+console.log(Person.prototype.isPrototypeOf(vinay));
+console.log(Person.prototype.isPrototypeOf(Person)); // confusion arises beacuse of bad naming
+
+// confusion Person.prototype -> it actually means that here .prototype is not prototype of Person
+//it should be like Person.prototypeOfLinkedObject
+//because as we write Person.prototype we think that this is the protoype of Person but it is actually Person.prototypeOfLinkedObject
+
+// console.log(Person.prototype.isPrototypeOf(Person)); // false ->  this lines demonstrate that actual prototype of Person is not Person.prototype so the naming should be like Person.prototypeOfLinkedObject not the Person.prototype.
+// Person.prototype is prototype of linked object that we attached to the constructor function
+
+console.log(Person.__proto__);
+
+console.log(kaku);
+/* 
+Person {firstName: 'kaku', birthYear: 2003}
+birthYear
+: 
+2003
+firstName
+: 
+"kaku"
+[[Prototype]]
+: 
+Object
+calcAge
+: 
+ƒ ()
+length
+: 
+0
+name
+: 
+""
+prototype
+: 
+{}
+arguments
+: 
+(...)
+caller
+: 
+(...)
+[[FunctionLocation]]
+: 
+oops.js:113
+[[Prototype]]
+: 
+ƒ ()
+[[Scopes]]
+: 
+Scopes[2]
+constructor
+: 
+ƒ (firstName, birthYear)
+[[Prototype]]
+: 
+Object
+
+*/
+
+// we can ad properties to prototype
+
+Person.prototype.species = "Human";
+console.log(vinay.species);
+
+// Both will be the same thing
+console.log(vinay.__proto__);
+console.log(Person.prototype); // remember it is a prototype of all linked objects to the constructor functions but not the prototype of Person
+
+console.log(vinay.hasOwnProperty("firstName"));
+console.log(vinay.hasOwnProperty("species")); // this is not in constructor function , it is in the prototype of the constructor function
+
+// Prototypal Inheritance and Prototype Chain
 
 
