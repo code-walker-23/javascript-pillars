@@ -75,18 +75,24 @@ But the 4 pillar of OOPs is still valid in prototypes oops in js
 // constructor is not feature of javascript it's like way creating an object that many developer chooses
 
 // function dec or exp but not arrow fn
+// Note : to add property inside a function to all instances we have to use this keyword
 function Person(firstName, birthYear) {
   console.log(this);
   // Instance properties
+  // this is mandatory
   this.firstName = firstName;
   this.birthYear = birthYear;
 
   // Never do this -> Because if we are creating thousands of objects then creating a lot of copies of this function might affect the performance of the code.
   // Use protoype
-  /*  this.calcAge = function () {
+  /*  
+    this.calcAge = function () {
     console.log(2024 - this.birthYear); // works fine without this keyword also
-  }; */
+  }; 
+  */
+  //  greet(){} -> error we have to use this
 }
+console.log(typeof Person); // function
 
 const vinay = new Person("Vinay", 2002);
 console.log(vinay);
