@@ -58,23 +58,14 @@ console.log(vinay);
 console.log(vinay.__proto__);
 console.log(vinay.__proto__ == Person.prototype);
 
+Person.prototype.greet = function () {
+  console.log(`Hey ${this.firstName}`);
+};
+vinay.greet();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//1. classes are not hoisted
+//2. Class are first class-citizens(we can pass this to the function and return from the function)
+//3. Classes are executed in the strict mode
 
 /* 
 Note : inside the constructor function we have to add a method we hav to always use like this.funName = function(){}
