@@ -74,7 +74,8 @@ But the 4 pillar of OOPs is still valid in prototypes oops in js
 
 // constructor is not feature of javascript it's like way creating an object that many developer chooses
 
-const Person = function (firstName, birthYear) {
+// function dec or exp but not arrow fn
+function Person(firstName, birthYear) {
   console.log(this);
   // Instance properties
   this.firstName = firstName;
@@ -85,7 +86,7 @@ const Person = function (firstName, birthYear) {
   /*  this.calcAge = function () {
     console.log(2024 - this.birthYear); // works fine without this keyword also
   }; */
-};
+}
 
 const vinay = new Person("Vinay", 2002);
 console.log(vinay);
@@ -203,14 +204,138 @@ console.log(vinay.hasOwnProperty("species")); // this is not in constructor func
 // Both are same
 console.log(Person); // [Function: Person]
 console.log(Person.prototype.constructor); //[Function: Person]
+// constructor function is pointing the function Person
+console.dir(Person.prototype.constructor); //[Function: Person]
+
+// dir is used to check the function property
 
 //  Prototype chain
 
 console.log(vinay.__proto__); // Person.prototype
 console.log(vinay.__proto__.__proto__); // Object.prototype
-console.log(vinay.__proto__.__proto__.__proto__); // null
+console.log(vinay.__proto__.__proto__.__proto__); // null -> scope chain ends here
 
 // it is simialar like scope chain if don't find the property inside the object then it goes for the Person.prototype which is again an object and it is linked to Object.prototype which is again an object and like to the null prototype
 
-// example of hasOwnProperty when we write like vinay.hasOwnPropert() this method is not inside the object vinay and it goes for Person.prototype and in the Person.prototype there is no property names as hasOwnPropert() so again it will go the linked prototype of Person.prototype which Object.prototype and it has property named as hasOwnPropert().
-// It is like a chain 
+// example of hasOwnProperty when we write like vinay.hasOwnPropert() this method is not inside the object vinay and it goes for Person.prototype and in the Person.prototype there is no property named as hasOwnProperty() so again it will go to the linked prototype of Person.prototype which is Object.prototype and it has property named as hasOwnPropert().
+// It is like a Prototype chain and PrototypalInheritance
+
+// proto of array objects
+
+const arr = [1, 2, 2, 3, 4, 5]; // behind the scene it created like new Array()
+console.log(arr);
+console.log(arr.__proto__); // all methods of arr object
+console.log(arr.__proto__ == Array.prototype); // true of new Array()
+console.log(arr.__proto__.__proto__); // null
+
+/* const arr1 = new Array(1, 2, 3, 4, 5);
+console.log(arr1);
+ */
+
+// we can aadd custom functions to Array.prototype
+// extending the built-in prototype is not a good idea
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+console.log(arr.unique());
+
+// this is actually prototype of Person not the Person.prototype == Person.prototypeOfLinkedObjects
+console.dir(Person.__proto__); // we will use dir to inspect the functions or objects
+console.log(Person.__proto__.isPrototypeOf(Person)); // true
+
+/* 
+
+Yes, in JavaScript, functions are indeed objects. This is a fundamental aspect of JavaScript that enables many of its dynamic and flexible features. Here's a detailed breakdown of this concept:
+
+### Functions as Objects in JavaScript
+
+1. **Functions Are First-Class Objects**:
+   - Functions in JavaScript are first-class objects, meaning they can be treated like any other object. They can be assigned to variables, passed as arguments to other functions, returned from functions, and have properties and methods.
+
+2. **Function Properties and Methods**:
+   - Functions have properties and methods just like objects. For example, you can add properties to functions or call methods on them.
+
+3. **The `prototype` Property**:
+   - Every function in JavaScript has a `prototype` property. This property is used to add methods and properties that will be inherited by instances created with the function (when used as a constructor). 
+
+4. **The `constructor` Property**:
+   - Every function has a `constructor` property that points back to the function itself. For instance, if you create a function called `myFunction`, the `constructor` property of instances created by `myFunction` will refer to `myFunction`.
+
+5. **Functions as Constructors**:
+   - Functions can be used as constructors. When invoked with the `new` keyword, functions create new objects and set the `this` context to the new object.
+
+### Examples and Explanation
+
+#### Function as an Object
+
+```javascript
+function greet(name) {
+  console.log("Hello, " + name);
+}
+
+// Adding properties to the function
+greet.language = "English";
+greet.version = "1.0";
+
+// Adding methods to the function
+greet.sayGoodbye = function() {
+  console.log("Goodbye!");
+};
+
+console.log(greet.language); // English
+console.log(greet.version);  // 1.0
+greet.sayGoodbye();         // Goodbye!
+```
+
+#### Function Prototype Property
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+// Adding a method to Person's prototype
+Person.prototype.sayHello = function() {
+  console.log("Hello, my name is " + this.name);
+};
+
+const alice = new Person("Alice");
+alice.sayHello(); // Hello, my name is Alice
+```
+
+#### Function Constructor
+
+```javascript
+function Car(make, model) {
+  this.make = make;
+  this.model = model;
+}
+
+Car.prototype.getDetails = function() {
+  return this.make + " " + this.model;
+};
+
+const myCar = new Car("Toyota", "Corolla");
+console.log(myCar.getDetails()); // Toyota Corolla
+```
+
+### Key Points
+
+1. **Functions as Objects**:
+   - Functions in JavaScript are objects with additional capabilities such as being callable. They can have properties and methods, and they can be used as constructors.
+
+2. **Prototype Chain**:
+   - The `prototype` property allows you to define methods that can be shared across all instances created by the function when used as a constructor.
+
+3. **Dynamic Nature**:
+   - Because functions are objects, you can dynamically add properties and methods to them, allowing for a high degree of flexibility.
+
+4. **Constructor Functions**:
+   - Functions can act as constructors for creating new objects, which is a core part of JavaScript's prototype-based inheritance.
+
+Understanding that functions are objects allows you to leverage JavaScript's powerful and flexible features, such as dynamic method and property addition, prototype inheritance, and more.
+
+
+
+
+*/
