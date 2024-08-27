@@ -120,3 +120,65 @@ map.set(arr, "array");
 
 console.log(map.get(obj1));
 console.log(map.get(arr));
+
+const map2 = new Map([
+  ["question", "what is the best programming language?"],
+  [1, "c"],
+  [2, "java"],
+  [3, "c++"],
+  ["correct", 3],
+  [true, "Correct Ans"],
+  [false, "Wrong Ans"],
+]);
+console.log(map2);
+
+const restaurant = {
+  name: "Classic Italiano",
+  location: "Via Angelo....",
+  categories: ["Italian", "Pizzeria", "toto", "poto"],
+  startMenu: ["Facoccia", "Garlic", "toto", "poto"],
+  mainMenu: ["Pizza", "Pasta", "Risottot"],
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0,
+      close: 24,
+    },
+  },
+  oderDelivery: function ({ time = "", address = "" }) {
+    // console.log(obj);
+    console.log("time : ", time);
+    console.log("address : ", address);
+  },
+};
+
+// converting the objects to map
+console.log(Object.entries(restaurant.openingHours));
+
+const map3 = new Map(Object.entries(restaurant.openingHours));
+console.log(map3);
+
+for (const [key, val] of map2) {
+  console.log(`key : ${key} and Value : ${val}`);
+}
+for (const [key, { open, close }] of map3) {
+  console.log(`key : ${key} and Value => open : ${open} and close ${close}`);
+}
+
+console.log(map2.get("question"));
+
+// const answer = prompt(map2.get("question"));
+
+// convert map to array
+
+console.log([...map2]);
+console.log(map.entries());
+console.log(map.keys());
+console.log(map.values());
