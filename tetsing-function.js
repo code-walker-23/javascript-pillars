@@ -1,3 +1,4 @@
+"use strict"
 const test = () => {
   console.log(this);
 };
@@ -14,4 +15,4 @@ t.greet = function () {
 console.log(t);
 t.greet();
 console.log(t.firstName);
-t.order();// we can use this we have make it as instance of t cons func
+// t.order();// we can use this we have make it as instance of t cons func
